@@ -104,9 +104,9 @@
                         } else if($this->session->userdata('role')==4){
                     ?>
                     <li>
-                        <a href="#">
+                    <a href="<?php echo base_url() ?>Task">
                             <i class="material-icons">home</i>
-                            <span>My Task</span>
+                            <span>Data Task</span>
                         </a>
                     </li>
                     <li>
@@ -130,7 +130,8 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2019 <a href="javascript:void(0);">Task Monitoring System</a>.
+                    &copy; 2020 <a href="javascript:void(0);">Task Monitoring System</a>. </br>
+                    <a href="https://goo.gl/maps/2A5rSX167tmH2A9UA"> UD.TUGU JAYA Magetan</a>
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.0
