@@ -109,16 +109,10 @@
                             <span>Data Task</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li <?php if($this->uri->segment(1)=='Reward'){ echo 'class="active"'; } ?>>
+                        <a href="<?php echo base_url() ?>Reward">
                             <i class="material-icons">home</i>
-                            <span>Progress Task</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="material-icons">home</i>
-                            <span>Tukar Poin</span>
+                            <span>Data Reward</span>
                         </a>
                     </li>
                     <?php

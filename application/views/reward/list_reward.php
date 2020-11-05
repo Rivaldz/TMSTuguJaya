@@ -27,7 +27,7 @@
 								<tr>
 									<th>Nama Reward</th>
 									<th>Poin</th>
-									<th>Stok</th>
+									<th>Nama Karyawan</th>
 									<?php if($this->session->userdata('role')==1 || $this->session->userdata('role')==2) { ?>
 									<th>Action</th>
 									<?php } ?>
@@ -47,6 +47,9 @@
 										<a href="<?php echo base_url() ?>Reward/deleteReward/<?php echo $k['id_reward'] ?>" onclick="return confirm('Anda Yakin Ingin Hapus Data Ini ?')"><button type="button" class="btn btn-danger waves-effect">
 											<i class="material-icons">delete</i>
 										</button></a>
+										<button class="btn bg-orange waves-effect">
+											Cek
+										</button>
 									</td>
 									<?php } ?>
 								</tr>

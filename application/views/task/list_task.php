@@ -15,10 +15,16 @@
 					</h2>
 				</div>
 				<div class="body">
+					<?php
+                        if($this->session->userdata('role')==1){
+                    ?>
 					<button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#add">
 						<i class="material-icons">person_add</i>
 						<span>Tambah Data</span>
 					</button>
+					<?php
+						}
+					?>
 					<div class="table-responsive" style="margin-top: 20px;">
 						<table class="table table-bordered table-striped table-hover js-basic-example dataTable">
 							<thead>
@@ -57,13 +63,26 @@
 									<td><?php echo $k['created_at'] ?></td>
 									<td><?php echo $k['deadline'] ?></td>
 									<td><?php echo $k['poin'] ?></td>
+
 									<td>
+									<?php
+									if($this->session->userdata('role')==1){
+									 ?>
 										<button type="button" class="btn bg-yellow waves-effect" data-toggle="modal" data-target="#edit<?php echo $no; ?>">
 											<i class="material-icons">edit</i>
 										</button>
 										<a href="<?php echo base_url() ?>Task/deleteTask/<?php echo $k['id_task'] ?>" onclick="return confirm('Anda Yakin Ingin Hapus Data Ini ?')"><button type="button" class="btn btn-danger waves-effect">
 											<i class="material-icons">delete</i>
 										</button></a>
+
+									<?php 
+									}else if($this->session->userdata('role')==4){
+									 ?>
+										<a href="<?php echo base_url() ?>Task/finishTask/<?php echo $k['id_task'] ?>" onclick="return confirm('Anda yakin telah menyelesaikan pekerjaan ini?')">
+										<button type="button" class="btn btn-danger waves-effect">
+										SELESAI	
+										</button></a>
+									 <?php } ?>
 									</td>
 								</tr>
 								<?php $no++; } ?>

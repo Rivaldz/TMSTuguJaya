@@ -45,7 +45,7 @@ class Task extends CI_Controller {
 	public function finishTask($id_task)
 	{
 		$this->Task_model->updateStatusTask('finish',$id_task);
-		redirect(base_url().'Task/taskBos');
+		redirect(base_url().'Task');
 	}
 
 	public function addTask()
