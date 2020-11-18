@@ -30,10 +30,10 @@
 							<thead>
 								<tr>
 									<th>Nama Task</th>
-									<th>From</th>
+									<th>Deskripsi</th>
+									<!-- <th>From</th> -->
 									<th>To</th>
 									<th>Dibuat Tanggal</th>
-									<th>Deadline</th>
 									<th>Poin</th>
 									<th>Action</th>
 								</tr>
@@ -42,15 +42,16 @@
 								<?php $no=1; foreach($task as $k) { ?>
 								<tr>
 									<td><?php echo $k['nama_task'] ?></td>
-									<td>
+									<td><?php echo $k['deskripsi'] ?></td>
+									<!-- <td>
 										<?php 
 											foreach($bos as $b) {
-												if($b['id_user']==$k['dari']){
+												if($b['id_user'] == $k['dari']){
 													echo $b['nama'];
 												}
 											}
 										?>
-									</td>
+									</td> -->
 									<td>
 										<?php 
 											foreach($karyawan as $kar) {
@@ -61,7 +62,7 @@
 										?>
 									</td>
 									<td><?php echo $k['created_at'] ?></td>
-									<td><?php echo $k['deadline'] ?></td>
+									<!-- <td><?php echo $k['deadline'] ?></td> -->
 									<td><?php echo $k['poin'] ?></td>
 
 									<td>
@@ -78,10 +79,13 @@
 									<?php 
 									}else if($this->session->userdata('role')==4){
 									 ?>
+									 	<?php if($k['status']==0){ ?>
 										<a href="<?php echo base_url() ?>Task/finishTask/<?php echo $k['id_task'] ?>" onclick="return confirm('Anda yakin telah menyelesaikan pekerjaan ini?')">
 										<button type="button" class="btn btn-danger waves-effect">
 										SELESAI	
 										</button></a>
+										<?php }else if($k['status']==2){?>
+										<?php } ?>
 									 <?php } ?>
 									</td>
 								</tr>

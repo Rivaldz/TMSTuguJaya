@@ -16,10 +16,10 @@
 				</div>
 				<div class="body">
 				<?php if($this->session->userdata('role')==1 || $this->session->userdata('role')==2) { ?>
-					<button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#add">
+					<!-- <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#add">
 						<i class="material-icons">person_add</i>
 						<span>Tambah Data</span>
-					</button>
+					</button> -->
 				<?php } ?>
 					<div class="table-responsive" style="margin-top: 20px;">
 						<table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -28,30 +28,41 @@
 									<th>Nama Reward</th>
 									<th>Poin</th>
 									<th>Nama Karyawan</th>
-									<?php if($this->session->userdata('role')==1 || $this->session->userdata('role')==2) { ?>
+									<!-- <?php if($this->session->userdata('role')==00 || $this->session->userdata('role')==l) { ?>
+
 									<th>Action</th>
-									<?php } ?>
+									<?php } ?> -->
+									<th>Status</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php $no=1; foreach($reward as $k) { ?>
 								<tr>
-									<td><?php echo $k['nama_reward'] ?></td>
+									<td><?php echo $k['nama_task'] ?></td>
 									<td><?php echo $k['poin'] ?></td>
-									<td><?php echo $k['stok'] ?></td>
-									<?php if($this->session->userdata('role')==1 || $this->session->userdata('role')==2) { ?>
+									<td>
+										<?php 
+											foreach($karyawan as $kar) {
+												if($kar['id_user']==$k['ke']){
+													echo $kar['nama'];
+												}
+											}
+										?></td>	
+									<!-- <?php if($this->session->userdata('role')==1 || $this->session->userdata('role')==2) { ?>
 									<td>
 										<button type="button" class="btn bg-yellow waves-effect" data-toggle="modal" data-target="#edit<?php echo $no; ?>">
 											<i class="material-icons">edit</i>
 										</button>
-										<a href="<?php echo base_url() ?>Reward/deleteReward/<?php echo $k['id_reward'] ?>" onclick="return confirm('Anda Yakin Ingin Hapus Data Ini ?')"><button type="button" class="btn btn-danger waves-effect">
+										<a href="<?php echo base_url() ?>Reward/deleteReward/<?php echo $k['id_task'] ?>" onclick="return confirm('Anda Yakin Ingin Hapus Data Ini ?')"><button type="button" class="btn btn-danger waves-effect">
 											<i class="material-icons">delete</i>
 										</button></a>
-										<button class="btn bg-orange waves-effect">
-											Cek
-										</button>
 									</td>
-									<?php } ?>
+									<?php } ?> -->
+									<td>
+										<?php if($k['status'] == 2){ ?>
+										<button class="btn bg-blue waves-effect">Checking</button>
+										<?php } else if ($k['status'] == 0){}?>
+									</td>
 								</tr>
 								<?php $no++; } ?>
 							</tbody>
@@ -102,8 +113,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
-					<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">BATAL</button>
+					<!-- <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
+					<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">BATAL</button> -->
 				</div>
 			</form>
 		</div>
@@ -149,8 +160,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
-					<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">BATAL</button>
+					<!-- <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
+					<button type="button" class="btn btn-link waves-effect" data-dismiss="modal">BATAL</button> -->
 				</div>
 			</form>
 		</div>

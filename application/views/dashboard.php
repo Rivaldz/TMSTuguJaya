@@ -15,7 +15,7 @@
 						
 					</h2>
 				</div>
-				<div class="body">Perusahaan Beton dan Gypsum UD. TUGU JAYA </br> Deskripsi...</div>
+				<div class="body">Perusahaan Beton dan Gypsum UD. TUGU JAYA </br> Akan terdapat api berita </div>
 			</div>
 		</div>
 	</div>

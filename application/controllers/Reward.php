@@ -9,6 +9,8 @@ class Reward extends CI_Controller {
 
 		$this->load->model('Reward_model');
 		$this->load->library('form_validation');
+		$this->load->model('User_model');
+
 
 		// if (empty($this->session->Videodata('Video_id'))) {
 		// 	redirect(base_url().'index.php/login');
@@ -19,7 +21,8 @@ class Reward extends CI_Controller {
 	public function index()
 	{
         $data['title'] = "Data Reward";
-        $data['reward'] = $this->Reward_model->getDataRewardAll();
+		$data['reward'] = $this->Reward_model->getDataRewardAll();
+		$data['karyawan'] = $this->User_model->getDataKaryawan();
 		$data['content'] = $this->load->view('reward/list_reward',$data, TRUE);
 		$this->load->view('element/main', $data);
 	}

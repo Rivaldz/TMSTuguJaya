@@ -5,7 +5,7 @@ class Reward_model extends CI_Model {
 
 	public function getDataRewardAll()
 	{
-		$query = $this->db->get('reward');
+		$query = $this->db->get('task');
 		return $query->result_array();
 	}
 

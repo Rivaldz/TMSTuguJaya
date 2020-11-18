@@ -12,7 +12,7 @@ class User_model extends CI_Model {
 
 	public function getDataBos()
 	{
-		$this->db->where('role', 3);
+		$this->db->where('role', 1);
 		$query = $this->db->get('user');
 		return $query->result_array();
 	}
