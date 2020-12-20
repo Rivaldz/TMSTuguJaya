@@ -39,7 +39,7 @@ class Task extends CI_Controller {
 	public function startTask($id_task)
 	{
 		$this->Task_model->updateStatusTask('start',$id_task);
-		redirect(base_url().'Task/taskBos');
+		redirect(base_url().'Task');
 	}
 
 	public function finishTask($id_task)
@@ -47,7 +47,17 @@ class Task extends CI_Controller {
 		$this->Task_model->updateStatusTask('finish',$id_task);
 		redirect(base_url().'Task');
 	}
-
+	
+	public function finishReward($id_task)
+	{
+		$this->Task_model->updateStatusTask('finish',$id_task);
+		redirect(base_url().'Reward');
+	}
+	public function endReward($id_task)
+	{
+		$this->Task_model->updateStatusTask('end',$id_task);
+		redirect(base_url().'Reward');
+	}
 	public function addTask()
 	{
 		$this->form_validation->set_rules('nama_task', 'Nama Task', 'trim|required');

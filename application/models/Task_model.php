@@ -38,7 +38,8 @@ class Task_model extends CI_Model {
 						'ke' => $this->input->post('ke'),
                         'poin' => $this->input->post('poin'),
                         'created_at' => date('Y-m-d h:i:s'),
-                        'deadline' => $this->input->post('deadline'));
+						'deadline' => $this->input->post('deadline'));
+
 		$this->db->insert("task", $object);
 	}
 	
@@ -73,6 +74,9 @@ class Task_model extends CI_Model {
 		}
 		else if($stat=='finish'){
 			$object = array('status' => 2);
+		}
+		else if ($stat == "end") {
+			$object = array("status" => 3);
 		}
 		$this->db->where('id_task', $id_task);
 		$this->db->update("task", $object);

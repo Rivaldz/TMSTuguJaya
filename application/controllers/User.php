@@ -10,10 +10,6 @@ class User extends CI_Controller {
 		$this->load->model('User_model');
 		$this->load->library('form_validation');
 
-		// if (empty($this->session->Videodata('Video_id'))) {
-		// 	redirect(base_url().'index.php/login');
-		// }
-
 	}
 
 	public function index()
@@ -35,15 +31,22 @@ class User extends CI_Controller {
 								'nama'=>$show->nama,
 								'email'=>$show->email,
 								'id_user'=>$show->id_user);
-    			$this->session->set_userdata($dlogin);
-    			redirect(base_url().'Dashboard');
+				$this->session->set_userdata($dlogin);
+				redirect(base_url().'Dashboard');
     		}
     		else
     		{
-    			redirect(base_url());
+				echo "<script>
+					alert('Password atau Username Anda Salah');
+					window.location.href='http://127.0.0.1/projek3/';
+					</script>";
+				// echo '<script>alert("Welcome to Geeks for Geeks")</script>',redirect(base_url());
+				// redirect(base_url());
     		}
 	    } else {
 			$this->load->view('element/login');
+			
+			// $this->load->view('task/list_task');
 		}
 	}
 

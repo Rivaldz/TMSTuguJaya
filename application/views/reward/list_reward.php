@@ -58,10 +58,29 @@
 										</button></a>
 									</td>
 									<?php } ?> -->
+
 									<td>
-										<?php if($k['status'] == 2){ ?>
-										<button class="btn bg-blue waves-effect">Checking</button>
-										<?php } else if ($k['status'] == 0){}?>
+										<?php if($k['status'] == 1){ 
+											if($this->session->userdata('role')==1 || $this->session->userdata('role')==2){?>
+												<!-- <button class="btn bg-blue waves-effect">Checking</button> -->
+												<a href="<?php echo base_url() ?>Task/finishReward/<?php echo $k['id_task'] ?>" onclick="return confirm('Anda yakin karyawan telah menyelesaikan pekerjaan ini?')">
+												<button type="button" class="btn bg-blue waves-effect">
+													SELESAI	
+												</button></a>
+
+											<?php }else{ ?> <h6>Checking by Atasan/HRD</h6> <?php } ?>
+											<?php } else if ($k['status'] == 2){?> 
+												<a href="<?php echo base_url() ?>Task/endReward/<?php echo $k['id_task'] ?>" onclick="return confirm('Klaim point Karyawan ?')">
+												<?php
+													if($this->session->userdata('role')==1 || $this->session->userdata('role')==2){?>
+												<button type="button" class="btn btn-danger waves-effect">
+													Klaim Point
+												</button></a>	<?php }
+													 ?>
+												<?php }if($k['status'] == 3){?>
+													 <h5>Point Sudah Di Ambil</h5>
+													 <?php } ?>
+
 									</td>
 								</tr>
 								<?php $no++; } ?>

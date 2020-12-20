@@ -125,7 +125,7 @@
             <div class="legal">
                 <div class="copyright">
                     &copy; 2020 <a href="javascript:void(0);">Task Monitoring System</a>. </br>
-                    <a href="https://goo.gl/maps/2A5rSX167tmH2A9UA"> UD.TUGU JAYA Magetan</a>
+                    <a href="https://goo.gl/maps/2A5rSX167tmH2A9UA" target="_blank"> UD.TUGU JAYA Magetan</a>
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.0

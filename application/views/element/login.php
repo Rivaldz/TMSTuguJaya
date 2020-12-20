@@ -25,7 +25,7 @@
     <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
 </head>
 
-<body class="login-page">
+<body class="login-page" style="background-image: url('');">
     <div class="login-box">
         <div class="logo">
             <a href="javascript:void(0);"><b>Tugu Jaya Magetan</b></a>

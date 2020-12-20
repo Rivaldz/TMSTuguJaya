@@ -31,9 +31,9 @@
 								<tr>
 									<th>Nama Task</th>
 									<th>Deskripsi</th>
-									<!-- <th>From</th> -->
 									<th>To</th>
 									<th>Dibuat Tanggal</th>
+									<th>Deadline</th>
 									<th>Poin</th>
 									<th>Action</th>
 								</tr>
@@ -43,7 +43,6 @@
 								<tr>
 									<td><?php echo $k['nama_task'] ?></td>
 									<td><?php echo $k['deskripsi'] ?></td>
-									<!-- <td>
 										<?php 
 											foreach($bos as $b) {
 												if($b['id_user'] == $k['dari']){
@@ -51,7 +50,6 @@
 												}
 											}
 										?>
-									</td> -->
 									<td>
 										<?php 
 											foreach($karyawan as $kar) {
@@ -62,7 +60,7 @@
 										?>
 									</td>
 									<td><?php echo $k['created_at'] ?></td>
-									<!-- <td><?php echo $k['deadline'] ?></td> -->
+									<td><?php echo $k['deadline'] ?></td>
 									<td><?php echo $k['poin'] ?></td>
 
 									<td>
@@ -80,11 +78,12 @@
 									}else if($this->session->userdata('role')==4){
 									 ?>
 									 	<?php if($k['status']==0){ ?>
-										<a href="<?php echo base_url() ?>Task/finishTask/<?php echo $k['id_task'] ?>" onclick="return confirm('Anda yakin telah menyelesaikan pekerjaan ini?')">
+										<a href="<?php echo base_url() ?>Task/startTask/<?php echo $k['id_task'] ?>" onclick="return confirm('Anda yakin telah menyelesaikan pekerjaan ini?')">
 										<button type="button" class="btn btn-danger waves-effect">
 										SELESAI	
 										</button></a>
-										<?php }else if($k['status']==2){?>
+										<?php }else if($k['status']==1){?>
+											<h6>Checking by Atasan/HR</h6>
 										<?php } ?>
 									 <?php } ?>
 									</td>
@@ -115,7 +114,7 @@
 								placeholder="Masukkan nama task">
 						</div>
 					</div>
-					<label for="deskripsi">Deskripsi</label>
+					<label for="deskripsi">Deskripsi Pekerjaan</label>
 					<div class="form-group">
 						<div class="form-line">
 							<textarea name="deskripsi" name="deskripsi" rows="4" class="form-control no-resize"
@@ -187,22 +186,22 @@
 								placeholder="Masukkan nama task">
 						</div>
 					</div>
-					<label for="deskripsi">Deskripsi</label>
+					<label for="deskripsi">Deskripsi Pekerjaan</label>
 					<div class="form-group">
 						<div class="form-line">
 							<textarea name="deskripsi" name="deskripsi" rows="4" class="form-control no-resize"
 								placeholder="Masukkan deskripsi task"></textarea>
 						</div>
 					</div>
-					<label for="dari">Dari</label>
+					<!-- <label for="dari">Dari</label> -->
 					<div class="form-group">
-						<div class="form-line">
+						<!-- <div class="form-line">
 							<select name="dari" id="dari" class="form-control">
 								<?php foreach($bos as $b){ ?>
 									<option value="<?php echo $b['id_user'] ?>"><?php echo $b['nama'] ?></option>
 								<?php } ?>
 							</select>
-						</div>
+						</div> -->
 					</div>
 					<label for="ke">Ke</label>
 					<div class="form-group">
